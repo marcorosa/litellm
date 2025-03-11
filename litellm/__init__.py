@@ -414,6 +414,7 @@ cerebras_models: List = []
 galadriel_models: List = []
 sambanova_models: List = []
 assemblyai_models: List = []
+sap_models: List = []
 
 
 def is_bedrock_pricing_only_model(key: str) -> bool:
@@ -567,6 +568,8 @@ def add_known_models():
             assemblyai_models.append(key)
         elif value.get("litellm_provider") == "jina_ai":
             jina_ai_models.append(key)
+        elif value.get("litellm_provider") == "sap_models":
+            sap_models.append(key)
 
 
 add_known_models()
@@ -644,6 +647,7 @@ model_list = (
     + azure_text_models
     + assemblyai_models
     + jina_ai_models
+    + sap_models
 )
 
 model_list_set = set(model_list)
@@ -699,6 +703,7 @@ models_by_provider: dict = {
     "sambanova": sambanova_models,
     "assemblyai": assemblyai_models,
     "jina_ai": jina_ai_models,
+    "sap": sap_models,
 }
 
 # mapping for those models which have larger equivalents

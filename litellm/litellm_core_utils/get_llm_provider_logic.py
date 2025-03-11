@@ -314,6 +314,9 @@ def get_llm_provider(  # noqa: PLR0915
             custom_llm_provider = "bedrock"
         elif model in litellm.watsonx_models:
             custom_llm_provider = "watsonx"
+        ## sap ai core
+        elif model in litellm.sap_models:
+            custom_llm_provider = "sap"
         # openai embeddings
         elif model in litellm.open_ai_embedding_models:
             custom_llm_provider = "openai"
